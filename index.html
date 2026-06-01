@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css?v=1" />
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">✦</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#hero" class="nav-logo">Dev<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Available for work</div>
+    <h1 class="hero-name" id="hero-name">Akmal <em>Jadid</em> <em>Hibrizi</em></h1>
+    <p class="hero-title" id="hero-title">Full Stack Developer</p>
+    <p class="hero-bio" id="hero-bio">Membangun pengalaman digital yang elegan dan fungsional dengan teknologi modern.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">Lihat Projects →</a>
+      <a href="#contact" class="btn-outline">Hubungi Saya</a>
+    </div>
+  </div>
+  <div class="hero-avatar">
+    <img id="hero-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=portfolio" alt="Avatar" />
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Tentang Saya</div>
+  <h2 class="section-title">Siapa <em>saya?</em></h2>
+  <div class="about-grid">
+    <div class="reveal-left">
+      <div class="about-stats">
+        <div class="stat-card reveal">
+          <div class="stat-num" data-target="3" data-suffix="+">0+</div>
+          <div class="stat-label">Tahun Pengalaman</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-num" data-target="20" data-suffix="+">0+</div>
+          <div class="stat-label">Project Selesai</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-num" data-target="15" data-suffix="+">0+</div>
+          <div class="stat-label">Klien Puas</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-num" data-target="8" data-suffix="">0</div>
+          <div class="stat-label">Teknologi Dikuasai</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-info reveal">
+      <p>Saya adalah seorang developer yang passionate dalam membangun aplikasi web modern. Saya percaya bahwa kode yang baik bukan hanya soal fungsi, tapi juga soal keindahan dan keterbacaan.</p>
+      <p>Dengan pengalaman di bidang full-stack development, saya siap membantu mewujudkan ide-ide digital kamu menjadi kenyataan.</p>
+      <div class="about-detail">
+        <div class="detail-row">
+          <span class="label">Nama</span>
+          <span class="value" id="about-name">Akmal Jadid Hibrizi</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Email</span>
+          <a class="value" id="about-email" href="#">jadidakmal0@gmail.com</a>
+        </div>
+        <div class="detail-row">
+          <span class="label">Phone</span>
+          <span class="value" id="about-phone">082131076202</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Lokasi</span>
+          <span class="value" id="about-location">Kabupaten Ponorogo</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">GitHub</span>
+          <a class="value" id="about-github" href="#" target="_blank">Akmal726-dot</a>
+        </div>
+        <div class="detail-row">
+          <span class="label">LinkedIn</span>
+          <a class="value" id="about-linkedin" href="#" target="_blank">—</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Keahlian</div>
+  <h2 class="section-title">Tech <em>Stack</em></h2>
+  <div class="skills-grid" id="skills-grid">
+    <!-- Loaded via JS -->
+    <div class="skill-card" style="opacity:0.3">
+      <div class="skill-header">
+        <div class="skill-name"><span class="skill-icon">⏳</span> Memuat...</div>
+      </div>
+      <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Karya</div>
+  <h2 class="section-title">Project <em>Terbaru</em></h2>
+  <div class="projects-grid" id="projects-grid">
+    <!-- Loaded via JS -->
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Karir</div>
+  <h2 class="section-title">Pengalaman <em>Kerja</em></h2>
+  <div class="timeline" id="timeline">
+    <!-- Loaded via JS -->
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Kontak</div>
+  <h2 class="section-title">Hubungi <em>Saya</em></h2>
+  <div class="contact-grid">
+    <div class="contact-info reveal-left">
+      <h3>Mari berkolaborasi!</h3>
+      <p>Punya project menarik atau ingin berdiskusi? Jangan ragu untuk menghubungi saya. Saya selalu terbuka untuk peluang baru.</p>
+      <div class="contact-item">
+        <div class="icon">✉️</div>
+        <a id="contact-email" href="#">—</a>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📱</div>
+        <span id="contact-phone">—</span>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📍</div>
+        <span id="contact-location">—</span>
+      </div>
+      <div class="contact-item">
+        <div class="icon">🐙</div>
+        <a id="contact-github" href="#" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" id="contact-form">
+        <div class="form-group">
+          <label for="c-name">Nama Lengkap</label>
+          <input type="text" id="c-name" placeholder="John Doe" required />
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" placeholder="john@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="c-message">Pesan</label>
+          <textarea id="c-message" placeholder="Halo! Saya tertarik untuk berdiskusi tentang..." required></textarea>
+        </div>
+        <div id="form-status" class="form-status"></div>
+        <button type="submit" class="btn-send">Kirim Pesan →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Dev<span>.</span></div>
+  <div>© 2026 — Dibuat dengan ♥ menggunakan Node.js & PostgreSQL</div>
+  <div>Kabupaten Ponorogo</div>
+</footer>
+
+<script src="main.js?v=1"></script>
+<script>
+  // Sync contact info after profile loaded
+  setTimeout(() => {
+    const email = document.getElementById('about-email');
+    const phone = document.getElementById('about-phone');
+    const location = document.getElementById('about-location');
+    const github = document.getElementById('about-github');
+    if (email && document.getElementById('contact-email')) {
+      document.getElementById('contact-email').textContent = email.textContent;
+      document.getElementById('contact-email').href = email.href;
+    }
+    if (phone) document.getElementById('contact-phone').textContent = phone.textContent;
+    if (location) document.getElementById('contact-location').textContent = location.textContent;
+    if (github) {
+      document.getElementById('contact-github').href = github.href;
+    }
+  }, 2000);
+</script>
+</body>
+</html>
