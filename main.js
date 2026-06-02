@@ -122,22 +122,22 @@ const loadProfile = async () => {
     const heroBioEl = document.getElementById('hero-bio');
     const heroAvatarEl = document.getElementById('hero-avatar');
 
-    if (heroNameEl && heroNameEl.textContent.trim() === 'Nama Kamu') {
-      heroNameEl.innerHTML = data.name?.split(' ').map((w, i) =>
-        i === data.name.split(' ').length - 1 ? `<em>${w}</em>` : w
-      ).join(' ') || 'Nama <em>Kamu</em>';
+    if (heroNameEl && data.name) {
+      heroNameEl.innerHTML = data.name.split(' ').map((w, i, arr) =>
+        i === arr.length - 1 ? `<em>${w}</em>` : w
+      ).join(' ');
     }
 
-    if (heroTitleEl && heroTitleEl.textContent.trim() === 'Full Stack Developer') {
-      heroTitleEl.textContent = data.title || 'Full Stack Developer';
+    if (heroTitleEl && data.title) {
+      heroTitleEl.textContent = data.title;
     }
 
-    if (heroBioEl && heroBioEl.textContent.trim() === 'Membangun pengalaman digital yang elegan dan fungsional dengan teknologi modern.') {
-      heroBioEl.textContent = data.bio || 'Membangun pengalaman digital yang elegan dan fungsional dengan teknologi modern.';
+    if (heroBioEl && data.bio) {
+      heroBioEl.textContent = data.bio;
     }
 
-    if (heroAvatarEl && heroAvatarEl.src.includes('api.dicebear.com')) {
-      heroAvatarEl.src = data.avatar_url || heroAvatarEl.src;
+    if (heroAvatarEl && data.avatar_url) {
+      heroAvatarEl.src = data.avatar_url;
     }
 
     const aboutNameEl = document.getElementById('about-name');
@@ -147,26 +147,26 @@ const loadProfile = async () => {
     const aboutGithubEl = document.getElementById('about-github');
     const aboutLinkedinEl = document.getElementById('about-linkedin');
 
-    if (aboutNameEl && aboutNameEl.textContent.trim() === '—') {
-      aboutNameEl.textContent = data.name || '—';
+    if (aboutNameEl && data.name) {
+      aboutNameEl.textContent = data.name;
     }
-    if (aboutEmailEl && aboutEmailEl.textContent.trim() === '—') {
-      aboutEmailEl.textContent = data.email || '—';
-      aboutEmailEl.href = data.email ? 'mailto:' + data.email : '#';
+    if (aboutEmailEl) {
+      aboutEmailEl.textContent = data.email || aboutEmailEl.textContent;
+      aboutEmailEl.href = data.email ? 'mailto:' + data.email : aboutEmailEl.href;
     }
-    if (aboutPhoneEl && aboutPhoneEl.textContent.trim() === '—') {
-      aboutPhoneEl.textContent = data.phone || '—';
+    if (aboutPhoneEl && data.phone) {
+      aboutPhoneEl.textContent = data.phone;
     }
-    if (aboutLocationEl && aboutLocationEl.textContent.trim() === '—') {
-      aboutLocationEl.textContent = data.location || '—';
+    if (aboutLocationEl && data.location) {
+      aboutLocationEl.textContent = data.location;
     }
-    if (aboutGithubEl && aboutGithubEl.textContent.trim() === '—') {
-      aboutGithubEl.textContent = data.github || '—';
-      aboutGithubEl.href = data.github || '#';
+    if (aboutGithubEl) {
+      aboutGithubEl.textContent = data.github || aboutGithubEl.textContent;
+      aboutGithubEl.href = data.github || aboutGithubEl.href;
     }
-    if (aboutLinkedinEl && aboutLinkedinEl.textContent.trim() === '—') {
+    if (aboutLinkedinEl && data.linkedin) {
       aboutLinkedinEl.textContent = 'LinkedIn';
-      aboutLinkedinEl.href = data.linkedin || '#';
+      aboutLinkedinEl.href = data.linkedin;
     }
   } catch (e) {
     console.warn('Gagal load profile:', e);
@@ -181,6 +181,11 @@ const loadSkills = async () => {
     const res = await fetch(`${API}/skills`);
     const { data } = await res.json();
     container.innerHTML = '';
+    if (!data || data.length === 0) {
+      container.innerHTML = '<div class="skill-card"><div class="skill-header"><div class="skill-name">Data skill belum tersedia</div></div></div>';
+      return;
+    }
+
     data.forEach((skill, i) => {
       const card = document.createElement('div');
       card.className = 'skill-card reveal';
@@ -216,6 +221,11 @@ const loadProjects = async () => {
     const res = await fetch(`${API}/projects`);
     const { data } = await res.json();
     container.innerHTML = '';
+    if (!data || data.length === 0) {
+      container.innerHTML = '<div class="project-card"><div class="project-body"><h3 class="project-title">Project belum tersedia</h3><p class="project-desc">Silakan periksa kembali data project di backend.</p></div></div>';
+      return;
+    }
+
     data.forEach((project, i) => {
       const card = document.createElement('div');
       card.className = 'project-card reveal';
