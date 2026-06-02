@@ -23,7 +23,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 
 body {
   background: var(--bg);
@@ -32,6 +32,7 @@ body {
   font-weight: 300;
   line-height: 1.7;
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* ─── SCROLLBAR ─────────────────────────── */
@@ -151,6 +152,16 @@ nav.scrolled {
   position: relative;
   z-index: 2;
   max-width: 700px;
+  width: 100%;
+}
+
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  width: 100%;
 }
 .hero-tag {
   display: inline-flex;
@@ -377,15 +388,20 @@ section {
   gap: 1rem;
   align-items: center;
   font-size: 0.85rem;
+  flex-wrap: wrap;
 }
 .detail-row .label {
   color: var(--gold);
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;
   letter-spacing: 1px;
-  min-width: 80px;
+  min-width: 60px;
 }
-.detail-row .value { color: var(--text); }
+.detail-row .value {
+  color: var(--text);
+  min-width: 0;
+  word-break: break-word;
+}
 
 /* ─── SKILLS ────────────────────────────── */
 #skills { background: var(--bg); }
@@ -815,9 +831,20 @@ footer {
 
 /* ─── RESPONSIVE ────────────────────────── */
 @media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
+  nav { padding: 1rem 1.5rem; flex-wrap: wrap; justify-content: center; }
   nav.scrolled { padding: 0.8rem 1.5rem; }
-  .nav-links { display: none; }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .nav-links a {
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
   section { padding: 5rem 6vw; }
   #hero { padding: 0 6vw; }
   .hero-avatar { display: none; }
@@ -901,6 +928,8 @@ footer {
   /* Navbar */
   nav { padding: 0.6rem 0.8rem; }
   .nav-logo { font-size: 1.1rem; letter-spacing: 0; }
+  .nav-links { justify-content: center; gap: 0.6rem; }
+  .nav-links a { white-space: normal; }
   
   /* Hero */
   section { padding: 2rem 3vw; }
