@@ -149,13 +149,24 @@ router.post('/contact', async (req, res) => {
   }
 
   try {
+    // 1. Simpan ke database
     const result = await db.query(
       'INSERT INTO contacts (name, email, message) VALUES ($1,$2,$3) RETURNING *',
       [name, email, message]
     );
-    res.json({ success: true, message: 'Pesan berhasil dikirim!', data: result.rows[0] });
+
+    // Email sending removed per request — hanya simpan ke database
+    res.json({ 
+      success: true, 
+      message: 'Pesan berhasil disimpan!', 
+      data: result.rows[0] 
+    });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    console.error('❌ Error saat menyimpan pesan:', err);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error saat menyimpan pesan: ' + err.message 
+    });
   }
 });
 

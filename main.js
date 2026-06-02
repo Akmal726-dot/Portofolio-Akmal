@@ -274,44 +274,6 @@ const loadExperience = async () => {
   }
 };
 
-// ─── CONTACT FORM ────────────────────────────────────
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = contactForm.querySelector('.btn-send');
-    const status = document.getElementById('form-status');
-    btn.disabled = true;
-    btn.textContent = 'Mengirim...';
-    const body = {
-      name: document.getElementById('c-name').value,
-      email: document.getElementById('c-email').value,
-      message: document.getElementById('c-message').value,
-    };
-    try {
-      const res = await fetch(`${API}/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      const data = await res.json();
-      if (data.success) {
-        status.textContent = '✓ Pesan berhasil dikirim! Terima kasih.';
-        status.className = 'form-status success';
-        contactForm.reset();
-      } else {
-        throw new Error(data.message);
-      }
-    } catch (err) {
-      status.textContent = '✗ Gagal mengirim pesan. Coba lagi.';
-      status.className = 'form-status error';
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Kirim Pesan →';
-      setTimeout(() => status.className = 'form-status', 4000);
-    }
-  });
-}
 
 // ─── ABOUT COUNTER ───────────────────────────────────
 const aboutSection = document.getElementById('about');
